@@ -18,7 +18,7 @@ Simple: Use the countdown() method on a div with a data-countdown attribute.
 $('#countdown').countdown();
 ````
 
-Advanced: Use the countdown() method on a div and pass a schedule of events
+Advanced: Use the countdown() method on a div and pass a repeating schedule of events
 
 ````
 <div id="countdown"></div>
