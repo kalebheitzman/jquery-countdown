@@ -65,16 +65,21 @@ Choose whether to show a time attribute when it reaches zero.
 showOnZeroYears: false,
 ````
 ````
-showOnZeroDays:			true,
+showOnZeroDays: true,
 ````
 ````
-showOnZeroHours:		true,
+showOnZeroHours: true,
 ````
 ````
-showOnZeroMinutes:	true,
+showOnZeroMinutes: true,
 ````
 ````
-showOnZeroSeconds:	true
+showOnZeroSeconds: true
 ```
 
+## Support
+
+File an issue on the [issue tracker.][issues]
+
 [demo]: http://kheitzman.com/projects/jquery-countdown  "jQuery Countdown"
+[issues]: https://github.com/kaleblex/jquery-countdown/issues "Issue Tracker"
