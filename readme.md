@@ -44,10 +44,22 @@ If you are using a repeating schedule, look at the example above. You specify th
 ## More Options
 
 ```
-showYears:					false,
-showDays:						true,
-showHours:					true,
-showMinutes:				true,
+showYears: false,
+````
+
+````
+showDays:	true,
+````
+
+````
+showHours: true,
+````
+
+````
+showMinutes: true,
+````
+
+````
 showSeconds:				true,
 showOnZeroYears:		false,
 showOnZeroDays:			true,
