@@ -77,7 +77,7 @@ showOnZeroMinutes: true,
 showOnZeroSeconds: true,
 ```
 
-An example with some of these options
+An example with some of these options:
 ````
 $('#countdown').countdown({
 	schedule: {
