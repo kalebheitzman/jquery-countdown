@@ -25,5 +25,10 @@ Advanced: Use the countdown() method on a div and pass a schedule of events
 ```
 
 ````
-$('#countdown').countdown();
+$('#countdown').countdown({
+	schedule: {
+		"Wednesday": [ "17:00:00", "17:50:00" ],
+		"Friday": [ "12:00:00" ]
+	}
+});
 ````
