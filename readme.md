@@ -6,7 +6,7 @@ jQuery Countdown is a plugin that allows you to easily create as many countdowns
 
 ## Installation
 
-Drop jquery.countdown.js into your scripts folder. Drop jquery.countdown.css into your styles folder if you wish. Really you should just create your own styles. I've included jquery.countdown.css for reference.
+Drop jquery.countdown.min.js into your scripts folder. Drop jquery.countdown.css into your styles folder if you wish. Really you should just create your own styles. I've included jquery.countdown.css for reference.
 
 ## Usage
 
