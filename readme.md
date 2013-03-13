@@ -41,20 +41,19 @@ If you use the data-countdown attribute, your date format must be ````mmmm, dd, 
 
 If you are using a repeating schedule, look at the example above. You specify the day of the week you need times for and then pass an array of times in the ````hh:mm:ss```` format.
 
-## Options
+## More Options
 
 ```
-schedule: 					null,
-showYears: 					false,
-showDays: 					true,
-showHours: 					true,
-showMinutes: 				true,
-showSeconds: 				true,
-showOnZeroYears: 		false,
-showOnZeroDays: 		true,
-showOnZeroHours: 		true,
+showYears:					false,
+showDays:						true,
+showHours:					true,
+showMinutes:				true,
+showSeconds:				true,
+showOnZeroYears:		false,
+showOnZeroDays:			true,
+showOnZeroHours:		true,
 showOnZeroMinutes:	true,
-showOnZeroSeconds: 	true
+showOnZeroSeconds:	true
 ```
 
 [demo]: http://kheitzman.com/projects/jquery-countdown  "jQuery Countdown"
