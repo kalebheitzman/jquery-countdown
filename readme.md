@@ -35,7 +35,7 @@ $('#countdown').countdown({
 });
 ````
 
-## Working with dates
+## Working With Dates and Times
 
 If you use the data-countdown attribute, your date format must be ````mmmm, dd, yyyy hh:mm:ss````, ex: ````January 01, 2020 15:00:00````.
 
@@ -43,6 +43,18 @@ If you are using a repeating schedule, look at the example above. You specify th
 
 ## Options
 
-
+```
+schedule: 					null,
+showYears: 					false,
+showDays: 					true,
+showHours: 					true,
+showMinutes: 				true,
+showSeconds: 				true,
+showOnZeroYears: 		false,
+showOnZeroDays: 		true,
+showOnZeroHours: 		true,
+showOnZeroMinutes:	true,
+showOnZeroSeconds: 	true
+```
 
 [demo]: http://kheitzman.com/projects/jquery-countdown  "jQuery Countdown"
