@@ -43,32 +43,37 @@ If you are using a repeating schedule, look at the example above. You specify th
 
 ## More Options
 
-_(defaults in codeblocks)_
-
-Specify whether to show years.
+These should be self-explanatory.
 ```
 showYears: false,
 ````
-
-Specify whether to show days.
 ````
 showDays: true,
 ````
-
 ````
 showHours: true,
 ````
-
 ````
 showMinutes: true,
 ````
-
 ````
 showSeconds:				true,
-showOnZeroYears:		false,
+````
+
+Choose whether to show a time attribute when it reaches zero.
+````
+showOnZeroYears: false,
+````
+````
 showOnZeroDays:			true,
+````
+````
 showOnZeroHours:		true,
+````
+````
 showOnZeroMinutes:	true,
+````
+````
 showOnZeroSeconds:	true
 ```
 
