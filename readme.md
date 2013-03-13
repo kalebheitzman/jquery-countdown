@@ -1,5 +1,7 @@
 # jQuery Countdown
 
+[View the demo][demo]
+
 jQuery Countdown is a plugin that allows you to easily create as many countdowns on your website as you would like. You can setup a countdown schedule by passing it in options or you can specify a data-countdown attribute to the div your calling jQuery Countdown on.
 
 ## Installation
@@ -36,3 +38,6 @@ $('#countdown').countdown({
 ## Working with dates
 
 If you use the data-countdown attribute, your date format must be ````mmmm, dd, yyyy hh:mm:ss````, ex: ````January 01, 2020 15:00:00````.
+
+
+[demo]: http://kheitzman.com/projects/jquery-countdown  "jQuery Countdown"
