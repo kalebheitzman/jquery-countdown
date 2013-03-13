@@ -8,17 +8,17 @@ Drop jquery.countdown.js into your scripts folder. Drop jquery.countdown.css int
 
 ## Usage
 
-Simple: Use the countdown() method on a div with a data-countdown attribute.
+Simple: Use the .countdown() method on a div with a data-countdown attribute.
 
 ````
-<div id="countdown" data-countdown="January 1, 2020 15:00:00"></div>
+<div id="countdown" data-countdown="January 01, 2020 15:00:00"></div>
 ````
 
 ````
 $('#countdown').countdown();
 ````
 
-Advanced: Use the countdown() method on a div and pass a repeating schedule of events
+Advanced: Use the .countdown() method on a div and pass a repeating schedule of events.
 
 ````
 <div id="countdown"></div>
@@ -26,9 +26,13 @@ Advanced: Use the countdown() method on a div and pass a repeating schedule of e
 
 ````
 $('#countdown').countdown({
-	schedule: {
+	schedule: { 
 		"Wednesday": [ "17:00:00", "17:50:00" ],
 		"Friday": [ "12:00:00" ]
 	}
 });
 ````
+
+## Working with dates
+
+If you use the data-countdown attribute, your date format must be ````mmmm, dd, yyyy hh:mm:ss````, example: ````January 01, 2020 15:00:00````.
