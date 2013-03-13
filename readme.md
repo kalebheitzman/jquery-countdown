@@ -10,12 +10,20 @@ Drop jquery.countdown.js into your scripts folder. Drop jquery.countdown.css int
 
 Simple: Use the countdown() method on a div with a data-countdown attribute.
 
-````<div id="countdown" data-countdown="January 1, 2020 15:00:00"></div>````
+````
+<div id="countdown" data-countdown="January 1, 2020 15:00:00"></div>
+````
 
-````$('#countdown').countdown();````
+````
+$('#countdown').countdown();
+````
 
 Advanced: Use the countdown() method on a div and pass a schedule of events
 
-````<div id="countdown"></div>```
+````
+<div id="countdown"></div>
+```
 
-````$('#countdown').countdown();````
+````
+$('#countdown').countdown();
+````
