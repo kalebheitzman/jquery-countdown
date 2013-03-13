@@ -43,7 +43,7 @@ If you are using a repeating schedule, look at the example above. You specify th
 
 ## More Options
 
-(defaults in codeblocks)
+_(defaults in codeblocks)_
 
 Specify whether to show years.
 ```
