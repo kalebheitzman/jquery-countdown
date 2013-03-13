@@ -1,0 +1,79 @@
+html {
+	background: #222;
+}
+body {
+	padding-top: 100px;
+	width: 610px;
+	margin: 0 auto 40px;
+}
+a {
+	color: #999;
+}
+h1 {
+	margin: 0;
+	padding: 0 0 50px;
+}
+h1, p {
+	width: 600px;
+	margin: 0 auto;
+	color: #fff;
+	text-align: center;
+	font-family: sans-serif;
+	font-weight: 100;
+}
+h2 {
+	text-align: center;
+	color: #fff;
+	font-size: 13px;
+	font-family: sans-serif;
+	font-weight: 100;
+	margin: 10px 0;
+	padding: 0;
+	color: #555;
+}
+p span.credit {
+	color: #999;
+}
+p span.credit a {
+	color: #fff;
+	text-decoration: none;
+	display: inline-block;
+	width: 34px;
+	line-height: 30px;
+	background: #333;
+	text-align: center;
+	margin-left: 2px;
+}
+div.info {
+	display: block;
+	width: 500px;
+	margin: 0 auto;
+}
+.countdown {
+	width: 600px;
+	overflow: hidden;
+	background: #333;
+	border-radius: 30px;
+	border: 5px solid #444;
+	height: 85px;
+	float: left;
+	margin: 0 0 20px;
+	display: table;
+}
+.countdown>div {
+	display: table-cell;
+}
+.countdown>div>span {
+	display: block;
+	text-align: center;
+	font-family: sans-serif;
+}
+span.count {
+	font-size: 48px;
+	color: #fff;
+	line-height: 48px;
+	padding-top: 7px;
+}
+span.title {
+	color: #555;
+}
