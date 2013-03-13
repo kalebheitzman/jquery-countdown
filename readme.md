@@ -35,4 +35,4 @@ $('#countdown').countdown({
 
 ## Working with dates
 
-If you use the data-countdown attribute, your date format must be ````mmmm, dd, yyyy hh:mm:ss````, example: ````January 01, 2020 15:00:00````.
+If you use the data-countdown attribute, your date format must be ````mmmm, dd, yyyy hh:mm:ss````, ex: ````January 01, 2020 15:00:00````.
