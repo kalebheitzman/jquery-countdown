@@ -43,12 +43,16 @@ If you are using a repeating schedule, look at the example above. You specify th
 
 ## More Options
 
+(defaults in codeblocks)
+
+Specify whether to show years.
 ```
 showYears: false,
 ````
 
+Specify whether to show days.
 ````
-showDays:	true,
+showDays: true,
 ````
 
 ````
