@@ -57,7 +57,7 @@ showHours: true,
 showMinutes: true,
 ````
 ````
-showSeconds:				true,
+showSeconds: true,
 ````
 
 Choose whether to show a time attribute when it reaches zero.
@@ -74,8 +74,19 @@ showOnZeroHours: true,
 showOnZeroMinutes: true,
 ````
 ````
-showOnZeroSeconds: true
+showOnZeroSeconds: true,
 ```
+
+An example with some of these options
+````
+$('#countdown').countdown({
+	schedule: {
+		"Wednesday": [ "17:00:00", "17:50:00" ],
+		"Friday": [ "12:00:00" ]
+	},
+	showOnZeroDays: false,
+});
+````
 
 ## Support
 
