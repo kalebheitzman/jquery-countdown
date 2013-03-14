@@ -92,7 +92,6 @@
 	 * schedule or date-time attr.
 	 */
 	var updateElement = function(element, html, callback) {
-		console.log(callback);
 		// update the html
 		$(element).html(html);
 	}
