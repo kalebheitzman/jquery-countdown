@@ -88,6 +88,10 @@ $('#countdown').countdown({
 });
 ````
 
+## Callbacks
+
+jQuery Countdown supports 2 callbacks. One is an overall callback named countdownCallback and the other is a timerCallback that is run every 1 second. Pass them in options to run.
+
 ## Support
 
 File an issue on the [issue tracker.][issues]

@@ -7,99 +7,82 @@
  * then it will fail silently as last result if neither of these are present.
  *
  * @author Kaleb Heitzman <kaleblex@gmail.com>
+ * @website http://github.com/kaleblex/jquery-countdown.js
  * @created March 12, 2013
  *
  */
-;(function($, window, document, undefined) {
+;(function($) {
 
 	/**
-	 * Plugin Settings
-	 *
-	 * Set the plugin name, and some default options
+	 * Countdown
 	 */
-	var pluginName = 'countdown',
-			defaults = {
-				schedule: 					null,
-				datetime: 					null,
-				showYears: 					false,
-				showDays: 					true,
-				showHours: 					true,
-				showMinutes: 				true,
-				showSeconds: 				true,
-				showOnZeroYears: 		false,
-				showOnZeroDays: 		true,
-				showOnZeroHours: 		true,
-				showOnZeroMinutes:	true,
-				showOnZeroSeconds: 	true
-			};
-
-	/**
-	 * jQuery Countdown
-	 *
-	 * Plugin construction. All the magic starts here.
-	 */
-	function Plugin( element, options ) {
-
-		/**
-		 * Get the element we're working with
-		 */
-		this.element = element;
+	$.fn.countdown = function(options) {
+		
+		// default options
+		defaults = {
+			schedule: 					null,
+			datetime: 					null,
+			showYears: 					false,
+			showDays: 					true,
+			showHours: 					true,
+			showMinutes: 				true,
+			showSeconds: 				true,
+			showOnZeroYears: 		false,
+			showOnZeroDays: 		true,
+			showOnZeroHours: 		true,
+			showOnZeroMinutes:	true,
+			showOnZeroSeconds: 	true
+		};
 
 		/**
 		 * Extend the options
 		 */
-		this.options = $.extend( {}, defaults, options);
+		var options = $.extend( {
+			timerCallback: function() {},
+			countdownCallback: function() {}
+		}, defaults, options);
 
 		/**
-		 * Check for a specified datetime
+		 * Check for a specified datetime and use ternary to apply value
 		 */
-		this.options.datetime = $(this.element).attr('data-countdown') ? $(this.element).attr('data-countdown') : null;
+		options.datetime = $(this).attr('data-countdown') ? $(this).attr('data-countdown') : null;
 
 		/**
-		 * Private information
+		 * Run Countdown on Element
 		 */
-		this._defaults = defaults;
-		this._name = pluginName;
+		return this.each(function() {
+
+			/**
+			 * Calculate Upcoming Day
+			 *
+			 * Calculate what the upcoming day is based on a combination of schedules
+			 * and date-time attribute. If a date-time attribute is used, it should be
+			 * used first. If a schedule is passed, calculate the date and time based
+			 * on the schedule
+			 */
+			var upcomingDate = scheduler(options);
+
+			/**
+			 * Get the element to update
+			 */
+			var element = $(this);
+
+			/**
+			 * Start the timer
+			 *
+			 * The time will update the element every one second.
+			 */
+			setInterval(function() { 
+				updateElement(element, makeTimer(upcomingDate, options), options.timerCallback); 
+			}, 1000);
+
+		});
 
 		/**
-		 * Initialize the plugin
+		 * An overball callback
 		 */
-		this.init();
-	}
+	  options.countdownCallback.call(this);
 
-	/**
-	 * Initialize
-	 *
-	 * This is where the magic happens after everything is setup
-	 */
-	Plugin.prototype.init = function() {
-
-		/**
-		 * Calculate Upcoming Day
-		 *
-		 * Calculate what the upcoming day is based on a combination of schedules
-		 * and date-time attribute. If a date-time attribute is used, it should be
-		 * used first. If a schedule is passed, calculate the date and time based
-		 * on the schedule
-		 */
-		var upcomingDate = scheduler(this.options);
-
-		/**
-		 * Get the element to update
-		 */
-		var element = this.element;
-
-		/**
-		 * Options
-		 */
-		var options = this.options;
-
-		/**
-		 * Start the timer
-		 *
-		 * The time will update the element every one second.
-		 */
-		setInterval(function() { updateElement(element, makeTimer(upcomingDate, options)); }, 1000);
 	};
 
 	/**
@@ -108,7 +91,8 @@
 	 * Updates the html inside of the element that plugin is attached to based on
 	 * schedule or date-time attr.
 	 */
-	var updateElement = function(element, html) {
+	var updateElement = function(element, html, callback) {
+		console.log(callback);
 		// update the html
 		$(element).html(html);
 	}
@@ -226,8 +210,6 @@
 	 * the html needed to be placed in $(this.element)
 	 */
 	var makeTimer = function(upcomingDate, options) {
-
-		console.log(options);
 
 		/**
 		 * Check for null upcomingDate
@@ -401,16 +383,4 @@
 		return nextDatebyDayofWeek;
 	}
 
-	/**
-	 * Build the plugin
-	 */
-	$.fn[pluginName] = function(options) {
-		return this.each(function() {
-			if ( ! $.data(this, 'plugin_' + pluginName)) {
-				$.data(this, 'plugin_' + pluginName,
-					new Plugin(this, options));
-			}
-		});
-	}
-
-})( jQuery, window, document );
+}(jQuery));
