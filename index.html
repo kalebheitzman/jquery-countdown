@@ -66,7 +66,7 @@
 
 	<!-- Countdown via Schedule -->
 	<h2>Scheduled (via plugin)</h2>
-	<div id="countdown" class="countdown" data-countdown="March 15, 2013 13:00:00"></div>
+	<div id="countdown" class="countdown" data-countdown="March 15, 2013 10:45:00"></div>
 
 	<!-- Countdown via data-time attribute -->
 	<h2>Data Attribute (via countdown div)</h2>
@@ -80,8 +80,8 @@
 		$(function() {
 			
 			$('#countdown').countdown({
-				timerCallback: function(options) {
-					console.log(options);
+				zeroCallback: function(options) {
+					$('#countdown').fadeOut();
 				}
 			});
 

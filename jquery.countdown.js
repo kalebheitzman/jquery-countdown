@@ -39,7 +39,8 @@
 		 */
 		var options = $.extend( {
 			timerCallback: function(options) {},
-			countdownCallback: function(options) {}
+			initCallback: function(options) {},
+			zeroCallback: function(options) {}
 		}, defaults, options);
 
 		/**
@@ -72,19 +73,36 @@
 			 *
 			 * The time will update the element every one second.
 			 */
-			setInterval(function() { 
+			var intervalHandle = setInterval(function() { 
 				// get the timerObject
 				var timerObject = makeTimer(upcomingDate, options);
+				// set the timerObject in options
+				options.timerObject = timerObject;
 				// create the HTML
 				var timerHtml = htmlParser(timerObject, options);
 				/**
 				 * Update the HTML for the counter
 				 */
 				updateElement(element, timerHtml, options); 
+				/** 
+				 * Check for zeroCallback
+				 */
+				if (timerObject.timeLeft <= 0) {
+					/**
+					 * Clear the interval because it's no longer needed
+					 */
+					clearInterval(intervalHandle);
+					/**
+					 * Call the zeroCallback to see if there is anything to perform.
+					 */
+					options.zeroCallback(options);
+				} 
 				/**
 				 * call the callback timer
 				 */
-				options.timerCallback(options);
+				else {
+					options.timerCallback(options);
+				}
 			}, 1000);
 
 		});
@@ -92,7 +110,7 @@
 		/**
 		 * An overball callback
 		 */
-	  options.countdownCallback.call(this);
+	  options.initCallback.call(this);
 
 	};
 
@@ -276,7 +294,8 @@
 			"days": days,
 			"hours": hours,
 			"minutes": minutes,
-			"seconds": seconds
+			"seconds": seconds,
+			"timeLeft": timeLeft
 		};
 
 		// return Timer Object
