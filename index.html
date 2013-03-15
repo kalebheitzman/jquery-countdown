@@ -66,7 +66,7 @@
 
 	<!-- Countdown via Schedule -->
 	<h2>Scheduled (via plugin)</h2>
-	<div id="countdown" class="countdown"></div>
+	<div id="countdown" class="countdown" data-countdown="March 15, 2013 13:00:00"></div>
 
 	<!-- Countdown via data-time attribute -->
 	<h2>Data Attribute (via countdown div)</h2>
@@ -80,16 +80,17 @@
 		$(function() {
 			
 			$('#countdown').countdown({
-				schedule: {
-					"Wednesday": [ "17:00:00", "17:50:00" ],
-					"Friday": [ "12:00:00" ]
-				},
-				showOnZeroDays: false,
+				timerCallback: function(options) {
+					console.log(options);
+				}
 			});
 
-
 			$('#countdown2').countdown({
-				showYears: true
+				schedule: {
+					"Wednesday": [ "17:00:00", "17:50:00" ],
+					"Friday": [ "13:00:00" ]
+				},
+				showYears: true,
 			});
 
 		});

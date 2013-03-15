@@ -38,8 +38,8 @@
 		 * Extend the options
 		 */
 		var options = $.extend( {
-			timerCallback: function() {},
-			countdownCallback: function() {}
+			timerCallback: function(options) {},
+			countdownCallback: function(options) {}
 		}, defaults, options);
 
 		/**
@@ -73,7 +73,18 @@
 			 * The time will update the element every one second.
 			 */
 			setInterval(function() { 
-				updateElement(element, makeTimer(upcomingDate, options), options.timerCallback); 
+				// get the timerObject
+				var timerObject = makeTimer(upcomingDate, options);
+				// create the HTML
+				var timerHtml = htmlParser(timerObject, options);
+				/**
+				 * Update the HTML for the counter
+				 */
+				updateElement(element, timerHtml, options); 
+				/**
+				 * call the callback timer
+				 */
+				options.timerCallback(options);
 			}, 1000);
 
 		});
@@ -91,7 +102,7 @@
 	 * Updates the html inside of the element that plugin is attached to based on
 	 * schedule or date-time attr.
 	 */
-	var updateElement = function(element, html, callback) {
+	var updateElement = function(element, html, options) {
 		// update the html
 		$(element).html(html);
 	}
@@ -259,23 +270,41 @@
 			}
 		}
 
+		// create the Timer Object
+		var timerObject = {
+			"years": years,
+			"days": days,
+			"hours": hours,
+			"minutes": minutes,
+			"seconds": seconds
+		};
+
+		// return Timer Object
+		return timerObject;
+	}
+
+	/**
+	 * Parses a Timer Object to create html
+	 */
+	var htmlParser = function(timerObject, options, format) {
+
 		/**
 		 * Adjust for zero
 		 */
-		if (years < "10") { years = "0" + years; }
-		if (days < "10") { days = "0" + days; }
-		if (hours < "10") { hours = "0" + hours; }
-		if (minutes < "10") { minutes = "0" + minutes; }
-		if (seconds < "10") { seconds = "0" + seconds; }
+		if (timerObject.years < "10") { timerObject.years = "0" + timerObject.years; }
+		if (timerObject.days < "10") { timerObject.days = "0" + timerObject.days; }
+		if (timerObject.hours < "10") { timerObject.hours = "0" + timerObject.hours; }
+		if (timerObject.minutes < "10") { timerObject.minutes = "0" + timerObject.minutes; }
+		if (timerObject.seconds < "10") { timerObject.seconds = "0" + timerObject.seconds; }
 
 		/**
 		 * Counter HTML to be passed back to the element
 		 */
-		var counter_years   = '<div class="years"><span class="count">' + years + '</span><span class="title">Years</span></div>';
-		var counter_days    = '<div class="days"><span class="count">' + days + '</span><span class="title">Days</span></div>';
-		var counter_hours   = '<div class="hours"><span class="count">' + hours + '</span><span class="title">Hours</span></div>';
-		var counter_minutes = '<div class="minutes"><span class="count">' + minutes + '</span><span class="title">Minutes</span></div>';
-		var counter_seconds = '<div class="seconds"><span class="count">' + seconds + '</span><span class="title">Seconds</span></div>';
+		var counter_years   = '<div class="years"><span class="count">' + timerObject.years + '</span><span class="title">Years</span></div>';
+		var counter_days    = '<div class="days"><span class="count">' + timerObject.days + '</span><span class="title">Days</span></div>';
+		var counter_hours   = '<div class="hours"><span class="count">' + timerObject.hours + '</span><span class="title">Hours</span></div>';
+		var counter_minutes = '<div class="minutes"><span class="count">' + timerObject.minutes + '</span><span class="title">Minutes</span></div>';
+		var counter_seconds = '<div class="seconds"><span class="count">' + timerObject.seconds + '</span><span class="title">Seconds</span></div>';
 
 		/**
 		 * Setup string inclusions
@@ -298,11 +327,11 @@
 		/**
 		 * Options showOnZero logic
 		 */
-		if ((!options.showOnZeroYears) && (years=="00")) 			{	includeYears = false; }
-		if ((!options.showOnZeroDays) && (days=="00")) 				{	includeDays = false; }
-		if ((!options.showOnZeroHours) && (hours=="00")) 			{	includeHours = false; }
-		if ((!options.showOnZeroMinutes) && (minutes=="00")) 	{	includeMinutes = false; }
-		if ((!options.showOnZeroSeconds) && (seconds=="00")) 	{	includeSeconds = false; }
+		if ((!options.showOnZeroYears) && (timerObject.years=="00")) 			{	includeYears = false; }
+		if ((!options.showOnZeroDays) && (timerObject.days=="00")) 				{	includeDays = false; }
+		if ((!options.showOnZeroHours) && (timerObject.hours=="00")) 			{	includeHours = false; }
+		if ((!options.showOnZeroMinutes) && (timerObject.minutes=="00")) 	{	includeMinutes = false; }
+		if ((!options.showOnZeroSeconds) && (timerObject.seconds=="00")) 	{	includeSeconds = false; }
 
 		/** Concatonate string
 		 */
