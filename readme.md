@@ -92,6 +92,25 @@ $('#countdown').countdown({
 
 jQuery Countdown supports 2 callbacks. One is an overall callback named countdownCallback and the other is a timerCallback that is run every 1 second. Pass them in options to run.
 
+
+## Regional configurations
+
+Added regional strings and support for singular or plural dates.
+
+````
+var regionalVar = {
+    days: 'Dias',
+    day: 'Dia',
+    years: 'Anos',
+    year: 'Ano',
+    hours: 'Horas',
+    hour: 'Hora',
+    minutes: 'Minutos',
+    minute: 'Minuto'
+};
+$('#countdown').countdown( { regional: regionalVar });
+
+````
 ## Support
 
 File an issue on the [issue tracker.][issues]
