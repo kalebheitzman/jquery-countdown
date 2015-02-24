@@ -26,7 +26,7 @@
             hours: 'Hours',
             hour: 'Hour',
             minutes: 'Minutes',
-            minute: 'Minute'
+            minute: 'Minute',
             seconds: 'Seconds',
             second: 'Second'
         };
