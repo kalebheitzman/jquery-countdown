@@ -27,6 +27,8 @@
             hour: 'Hora',
             minutes: 'Minutos',
             minute: 'Minuto'
+            seconds: 'Segundos',
+            second: 'Segundo'
         };
         // default options
         defaults = {
