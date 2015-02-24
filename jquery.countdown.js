@@ -19,16 +19,16 @@
      */
     $.fn.countdown = function (options) {
         var default_regional = {
-            days: 'Dias',
-            day: 'Dia',
-            years: 'Anos',
-            year: 'Ano',
-            hours: 'Horas',
-            hour: 'Hora',
-            minutes: 'Minutos',
-            minute: 'Minuto'
-            seconds: 'Segundos',
-            second: 'Segundo'
+            days: 'Days',
+            day: 'Day',
+            years: 'Years',
+            year: 'Year',
+            hours: 'Hours',
+            hour: 'Hour',
+            minutes: 'Minutes',
+            minute: 'Minute'
+            seconds: 'Seconds',
+            second: 'Second'
         };
         // default options
         defaults = {
